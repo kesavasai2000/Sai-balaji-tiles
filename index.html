@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiles Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="home" class="header">
+        <div class="logo-container">
+            <img src="logo1.jpg" alt="Logo" class="logo">
+        </div>
+        <h1 class="title">SAI BALAJI TILES HOME</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#view-in-room">View in Room</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Find the Perfect Tile for Your Home</h1>
+            <p>Explore our premium collection of tiles with AR view support.</p>
+            <a href="#catalog" class="btn">Browse Tiles</a>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog">
+        <h2>Our Tile Collection</h2>
+        <div class="tile-container">
+            <div class="tile">
+                <a href="polished.html">
+                    <img src="tiles1.jpg" alt="Tile 1">
+                    <p>Polished Vitrified Tiles</p>
+                </a>
+            </div>
+            <div class="tile">
+                <a href="ceramic.html">
+                    <img src="tiles2.jpg" alt="Tile 2">
+                    <p>Ceramic Tiles</p>
+                </a>
+            </div>
+            <div class="tile">
+                <a href="glazed.html">
+                    <img src="tiles3.jpg" alt="Tile 3">
+                    <p>Glazed Vitrified Tiles</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="tileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <img id="modalImg" src="" alt="Tile Image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <!-- View in Room (AR) Section -->
+    <section id="view-in-room" class="view-in-room">
+        <h2>View in Your Room</h2>
+        <p>Use our Augmented Reality feature to see how our tiles look in your space.</p>
+
+        <!-- Model Viewer for AR Preview -->
+        <model-viewer 
+            src="tile_model.glb" 
+            alt="Tile Model"
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            shadow-intensity="1" 
+            auto-rotate
+            style="width: 100%; max-width: 400px; height: 400px;">
+        </model-viewer>
+
+        <button class="btn" onclick="launchAR()">Try AR Mode</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Phone: 7680943539</p>
+        <p>Email: kesavasai432@gmail.com</p>
+        <p>We provide high-quality tiles for your perfect home.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tiles Shop. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for AR Button -->
+    <script>
+        function launchAR() {
+            const modelViewer = document.querySelector("model-viewer");
+            if (modelViewer) {
+                modelViewer.activateAR();
+            } else {
+                alert("AR feature is not available on this device.");
+            }
+        }
+    </script>
+</body>
+</html>
